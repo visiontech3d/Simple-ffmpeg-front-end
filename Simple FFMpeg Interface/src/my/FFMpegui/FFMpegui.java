@@ -4,8 +4,6 @@
  */
 package my.FFMpegui;
 
-import java.awt.Component;
-import java.awt.Container;
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileWriter;
@@ -451,7 +449,7 @@ public class FFMpegui extends javax.swing.JFrame {
             myWriter.write(System.getProperty( "line.separator" ) + "ffmpeg_pre||" + ffmpeg_pre);
             myWriter.write(System.getProperty( "line.separator" ) + "ffmpeg_post||" + ffmpeg_post);
             myWriter.write(System.getProperty( "line.separator" ) + "default_codec||" + combobox_codec.getSelectedItem().toString());
-            myWriter.write(System.getProperty( "line.separator" ) + "postfix||" + file_postfix.getText().trim());
+            myWriter.write(System.getProperty( "line.separator" ) + "postfix||" + file_postfix.getText());
             myWriter.write(System.getProperty( "line.separator" ));
             myWriter.close();
             System.out.println("Successfully wrote to INI file.");
@@ -595,7 +593,7 @@ public class FFMpegui extends javax.swing.JFrame {
         DefaultTableModel model = (DefaultTableModel) jTable1.getModel();
         
         String ffplay_command = "\"" + ffmpeg_loc + "\\ffplay.exe\"";
-        String ffplay_input = "\"" + ffmpeg_source + "\\" + model.getValueAt(jTable1.getSelectedRow(), NORMAL) + "\"";
+        String ffplay_input = "\"" + ffmpeg_source + "\\" + model.getValueAt(jTable1.convertRowIndexToModel(jTable1.getSelectedRow()), NORMAL) + "\"";          //Convert from sorted table
         
         ProcessBuilder build = new ProcessBuilder(ffplay_command, ffplay_input);
         build.redirectErrorStream(true);
@@ -635,7 +633,7 @@ public class FFMpegui extends javax.swing.JFrame {
             //Loop all selected files in table
             process: for (int x : jTable1.getSelectedRows()){
                 //Input file
-                String infile = "" + model.getValueAt(x, NORMAL);    
+                String infile = "" + model.getValueAt(jTable1.convertRowIndexToModel(x), NORMAL);    
                 
                 /* Get outfile name */
                 //Get location of file extension 
@@ -645,10 +643,10 @@ public class FFMpegui extends javax.swing.JFrame {
                 //Replace output file name with *.mp4
                 String outfile ;
                 if (extension > 0 && infile.substring(extension, infile.length()).length() < 5){       //In case source file has no extension, try to encompass cases like .jpeg , .jpg. Assume is not extension if length after final '.' is more than 5
-                    outfile = infile.substring(0, extension) + file_postfix.getText().trim() + ".mp4";
+                    outfile = infile.substring(0, extension) + file_postfix.getText() + ".mp4";
                     System.out.println("Outfile is :" + outfile);
                 }    
-                else {outfile = infile + file_postfix.getText().trim() + ".mp4";}
+                else {outfile = infile + file_postfix.getText() + ".mp4";}
                 
                 //Return code for delete operation
                 int del_src_return = 1;
@@ -669,7 +667,7 @@ public class FFMpegui extends javax.swing.JFrame {
                     Path temp_path = Paths.get(full_path);
                     if (Files.exists(temp_path)) {
                         System.out.println("Output file exists, skipping : " + full_path);
-                        model.setValueAt("Skip", x, 2);
+                        model.setValueAt("Skip", jTable1.convertRowIndexToModel(x), 2);
                         continue ;
                     }
                 }
@@ -694,12 +692,12 @@ public class FFMpegui extends javax.swing.JFrame {
                 
                 //Get return value and update table of success
                 if (cmd_return == 0 && attr_exit == 0 && del_src_return == 0){
-                    model.setValueAt("OK", x, 2);
+                    model.setValueAt("OK", jTable1.convertRowIndexToModel(x), 2);
                 }else {
-                    model.setValueAt("Fail", x, 2);
+                    model.setValueAt("Fail", jTable1.convertRowIndexToModel(x), 2);
                 }
                 //Attempt to repaint table value
-                model.fireTableCellUpdated(x, 2);
+                model.fireTableCellUpdated(jTable1.convertRowIndexToModel(x), 2);
                                 
             }
         }else {     //If no selected items stop and show dialog
