@@ -21,6 +21,7 @@ Steps to use (basic users):
 5. Select target folder where you want the converted videos to be stored. If same as source folder then leave empty.
 6. Select the codec supported by ffmpeg.
    If upgrading to a newer release of ffmpeg and the program is not able to obtain the list from ffmpeg.exe automatically, you may type in the codec manually.
+7. Type in file name postfixes for the converted videos if any.
 8. Select option to:
    - Delete original videos after conversion (use with caution)
    - Restore Create and Modified date of source videos to converted video files
