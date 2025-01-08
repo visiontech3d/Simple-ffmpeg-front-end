@@ -15,8 +15,8 @@ Steps to setup the first time:
 3. Set output command argument. These are arguments that will be passed onto the command. Leave it as it is for basic users
 And you are done! Start using!
 
-Steps to use (basic user):
---------------------------
+Steps to use (basic users):
+---------------------------
 4. Select source folder where videos you want to convert are located
 5. Select target folder where you want the converted videos to be stored. If same as source folder then leave empty.
 6. Select the codec supported by ffmpeg.
@@ -27,9 +27,9 @@ Steps to use (basic user):
 9. Convert away!
 10. You can play the video file from this UI. I actually use this quite often, it is now my mini video player :)
 
-Steps to use (advanced user):
------------------------------
-For advanced user who want to control the ffmpeg.exe command, buttons 4 and 5 controls the arguments to the command line. 
+Steps to use (advanced users):
+------------------------------
+For advanced users who want more control of ffmpeg.exe command line, buttons 4 and 5 control the arguments to the command line. 
 ![image](https://github.com/user-attachments/assets/bd6793fc-59cd-428f-9820-f002d501e3d3)
 Simply ensure the custom arguments are put before -i (for input) and -c:v for output
 ![image](https://github.com/user-attachments/assets/611c2bc0-db59-4662-94fe-e4bf6753d912)
