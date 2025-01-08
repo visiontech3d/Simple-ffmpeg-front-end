@@ -1,5 +1,5 @@
 # Simple-ffmpeg-front-end
-The simplest ffmpeg front end ever
+The simplest ffmpeg front end ever!
 
 I suppose it is meant for Windows machines, but since it is Java so it might work with other Operating Systems. To make it work in linux you can rename your CJXL binary to cjxl.exe, it might work, let me know!
 
