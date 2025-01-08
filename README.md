@@ -32,9 +32,11 @@ Steps to use (advanced users):
 For advanced users who want more control of ffmpeg.exe command line, buttons 4 and 5 control the arguments to the command line. 
 
 ![image](https://github.com/user-attachments/assets/bd6793fc-59cd-428f-9820-f002d501e3d3)
+
 Simply ensure the custom arguments are put before -i (for input) and -c:v for output
 
 ![image](https://github.com/user-attachments/assets/611c2bc0-db59-4662-94fe-e4bf6753d912)
+
 And you should be good to go!
 
 Disclaimer: Use at your own risk! I will not be held responsible of any negative outcomes, damage or loss of life or property caused directly or indirectly from this program. However if you want, feel free to buy me a cup of coffee!
