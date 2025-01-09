@@ -521,7 +521,7 @@ public class FFMpegui extends javax.swing.JFrame {
                     //Get extension if any
                     int ext_index = file2.getName().lastIndexOf(".");
                     String ext = "";
-                    if (ext_index > 0 && file2.getName().substring(ext_index, file2.getName().length()).length() < 5){
+                    if (ext_index > 0 && file2.getName().substring(ext_index, file2.getName().length()).length() < 6){
                         ext = file2.getName().substring(ext_index, file2.getName().length());
                     }
                     model.addRow(new Object[]{file2.getName(), ext, "", false});
@@ -642,7 +642,7 @@ public class FFMpegui extends javax.swing.JFrame {
                 
                 //Replace output file name with *.mp4
                 String outfile ;
-                if (extension > 0 && infile.substring(extension, infile.length()).length() < 5){       //In case source file has no extension, try to encompass cases like .jpeg , .jpg. Assume is not extension if length after final '.' is more than 5
+                if (extension > 0 && infile.substring(extension, infile.length()).length() < 6){       //In case source file has no extension, try to encompass cases like .jpeg , .jpg. Assume is not extension if length after final '.' is more than 5
                     outfile = infile.substring(0, extension) + file_postfix.getText() + ".mp4";
                     System.out.println("Outfile is :" + outfile);
                 }    
