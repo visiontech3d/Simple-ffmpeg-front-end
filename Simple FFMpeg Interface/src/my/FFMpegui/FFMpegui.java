@@ -789,10 +789,10 @@ public class FFMpegui extends javax.swing.JFrame {
             while (true) {
                 line = r.readLine();
                 if (line == null) { break; }
-                if (line.length()> 5 && !line.substring(0, 5).equals("frame")){
+                //if (line.length()> 5 && !line.substring(0, 5).equals("frame")){
                     //Print only important messages
                     System.out.println(line);
-                }
+                //}
                 
             }
                 
